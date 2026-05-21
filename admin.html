@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>প্রফেশনাল অ্যাডমিন ড্যাশবোর্ড</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 flex h-screen overflow-hidden font-sans">
+
+    <div class="w-64 bg-slate-900 text-white p-6 space-y-6 flex-shrink-0">
+        <h2 class="text-2xl font-black text-indigo-400">স্মার্ট ড্যাশবোর্ড</h2>
+        <nav class="space-y-2">
+            <a href="#products-section" class="block px-4 py-2.5 rounded-xl bg-slate-800 font-medium"><i class="fas fa-boxes mr-2"></i> স্টক ও প্রোডাক্টস</a>
+            <a href="#orders-section" class="block px-4 py-2.5 rounded-xl hover:bg-slate-800 font-medium"><i class="fas fa-shopping-bag mr-2"></i> কাস্টমার অর্ডারস</a>
+        </nav>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-8 space-y-10">
+        
+        <section class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h3 class="text-xl font-bold mb-4 text-slate-800"><i class="fas fa-plus-circle text-indigo-600 mr-2"></i> নতুন প্রোডাক্ট স্টক ইন করুন</h3>
+            <form id="admin-add-product-form" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <input type="text" id="p-name" placeholder="পণ্যের নাম" required class="p-3 border rounded-xl outline-none focus:border-indigo-500">
+                <input type="number" id="p-price" placeholder="মূল্য (৳)" required class="p-3 border rounded-xl outline-none focus:border-indigo-500">
+                <input type="number" id="p-stock" placeholder="কোয়ান্টিটি / স্টক সংখ্যা" required class="p-3 border rounded-xl outline-none focus:border-indigo-500">
+                <input type="text" id="p-img" placeholder="ছবির লিংক (URL)" required class="p-3 border rounded-xl outline-none focus:border-indigo-500">
+                <div class="md:col-span-4 text-right">
+                    <button type="submit" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-bold transition shadow-md">সংরক্ষণ করুন</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="products-section" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h3 class="text-xl font-bold mb-4 text-slate-800"><i class="fas fa-warehouse text-amber-500 mr-2"></i> ইনভেন্টরি ও স্টক লেভেল</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-500 border-b text-sm">
+                            <th class="p-4">প্রোডাক্ট ইমেজ</th>
+                            <th class="p-4">নাম</th>
+                            <th class="p-4">মূল্য</th>
+                            <th class="p-4">বর্তমান স্টক</th>
+                            <th class="p-4">স্টক আপডেট</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-product-inventory" class="divide-y text-sm">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="orders-section" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <h3 class="text-xl font-bold mb-4 text-slate-800"><i class="fas fa-list-check text-green-600 mr-2"></i> কাস্টমার লাইভ অর্ডারসমূহ</h3>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-500 border-b text-sm">
+                            <th class="p-4">কাস্টমার</th>
+                            <th class="p-4">ঠিকানা</th>
+                            <th class="p-4">অর্ডার আইটেম</th>
+                            <th class="p-4">টোটাল বিল</th>
+                            <th class="p-4">সময় ও তারিখ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-live-orders" class="divide-y text-sm">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
